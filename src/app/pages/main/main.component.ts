@@ -15,6 +15,7 @@ export class MainComponent implements OnInit {
   public filterList = [];
   public endOfList: boolean;
   public error = false;
+  loadNextData: any = () => {};
 
   constructor(private catalog: CatalogService) { }
 
@@ -25,13 +26,6 @@ export class MainComponent implements OnInit {
     this.endOfList = false;
     const params = new HttpParams().set('c', catalogList[catalogIndex]);
     this.catalog.fetchCatalog('filter.php', params).pipe(
-      map(data => {
-       if (data) {
-         return data;
-       } else {
-          throw 'This is an error!';
-       }
-      }),
       catchError(err => {
         console.log(err);
         this.error = true;
@@ -39,11 +33,16 @@ export class MainComponent implements OnInit {
       })
     )
     .subscribe((data: any) => {
-      if (data.drinks.length) {
-        this.catalogList.push({
-          title: params.get('c'),
-          data: data.drinks
-        });
+      this.loadNextData = this.loadNextDataFunction;
+      if (data == null) {
+        this.error = true;
+      } else {
+        if (data.drinks.length) {
+          this.catalogList.push({
+            title: params.get('c'),
+            data: data.drinks
+          });
+        }
       }
     });
   }
@@ -56,14 +55,14 @@ export class MainComponent implements OnInit {
     this.fetchCatalogList(catalogList, this.initialCatalogIndex); // initial load of data
   }
 
-  public  loadNextData() {
-    setTimeout(() => {
-      this.initialCatalogIndex++;
-      if ((this.filterList.length !== this.initialCatalogIndex)) {
-        this.fetchCatalogList(this.filterList, this.initialCatalogIndex);
-      } else {
-        this.endOfList = true;
-      }
-    }, 0);
+  public loadNextDataFunction() {
+    this.initialCatalogIndex++;
+    console.log(this.filterList);
+    console.log(this.initialCatalogIndex);
+    if ((this.filterList.length !== this.initialCatalogIndex)) {
+      this.fetchCatalogList(this.filterList, this.initialCatalogIndex);
+    } else {
+      this.endOfList = true;
+    }
   }
 }
