@@ -33,7 +33,6 @@ export class MainComponent implements OnInit {
       })
     )
     .subscribe((data: any) => {
-      this.loadNextData = this.loadNextDataFunction;
       if (data == null) {
         this.error = true;
       } else {
@@ -42,6 +41,7 @@ export class MainComponent implements OnInit {
             title: params.get('c'),
             data: data.drinks
           });
+          this.loadNextData = this.loadNextDataFunction;
         }
       }
     });
