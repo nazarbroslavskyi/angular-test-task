@@ -4,7 +4,7 @@
     (applyFilter)="fetchCatalogtData($event)"></app-filter>
   <div class="catalog-list">
     <div *ngIf="!isCatalogLoading else loading">
-    <app-infinite-scroll *ngIf="!isCatalogLoading" (scrolled)="loadNextData()">
+    <app-infinite-scroll (scrolled)="loadNextData()">
       <app-catalog class="app-catalog-component"
         *ngFor="let catalog of catalogList"
         [catalogOfDrinks]="catalog"></app-catalog>
@@ -14,7 +14,7 @@
 </div>
 
 <ng-template #loading>
-  <div class="loading-text">
+  <div class="">
     Loading...
   </div>
 </ng-template>
