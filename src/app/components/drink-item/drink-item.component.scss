@@ -1,0 +1,36 @@
+.drink-item-component {
+  // background: blue;
+  // margin: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: 150px;
+  margin-top: 20px;
+  &__img-wrapper {
+    background-color: lightgrey;
+    width: 150px;
+    height: 150px;
+  }
+
+  &__drink-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  &__title {
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+
+  &__card-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    width: 150px;
+  }
+}

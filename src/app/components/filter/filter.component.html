@@ -1,1 +1,26 @@
-<p>filter works!</p>
+<div class="filter-component" *ngIf="!isLoading">
+  <form class="filter-component__filter-form"  [formGroup]="searchDrinksForm" (ngSubmit)="submit()">
+
+
+
+    <!-- <app-checkbox-item *ngFor="let item of [1, 2, 3, 4, 4]"></app-checkbox-item> -->
+
+    <label class="container" formArrayName="orders" *ngFor="let order of getControls(); let i = index">
+      <input type="checkbox" [formControlName]="i"/>
+      {{ordersData[i].strCategory}}
+      <div class="checkbox checkbox-component__checkbox">
+        <div class="checkbox-tick" *ngIf="order.value"></div>
+      </div>
+    </label>
+
+    <label
+    formArrayName="orders"
+
+  >
+
+
+  </label>
+
+    <button class="filter-component__apply-btn" type="submit">Apply</button>
+    </form>
+</div>

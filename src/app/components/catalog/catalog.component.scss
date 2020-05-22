@@ -1,0 +1,35 @@
+.catalog-component {
+
+  &__drink-items-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    // margin-top: 20px;
+    margin-left: 30px;
+
+  }
+
+  &__drink-item {
+    box-sizing: border-box;
+    // outline: 1px solid red;
+    // background-color: DodgerBlue;
+    text-align: center;
+    flex-grow: 1;
+    flex-basis: calc(100% / 5);
+    max-width: 20%;
+    min-width: 200px;
+    // margin-right: 80px;
+  }
+
+  &__title {
+    color: #818181;
+    border-bottom: 1px solid #D0D0D0;
+    padding-bottom: 10px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    margin-top: 42px;
+    margin-left: 30px;
+  }
+}

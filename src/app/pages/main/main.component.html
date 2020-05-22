@@ -1,1 +1,20 @@
 <app-header></app-header>
+<div class="filter-and-catalog-container">
+  <app-filter class="app-filter-component"
+    (applyFilter)="fetchCatalogtData($event)"></app-filter>
+  <div class="catalog-list">
+    <div *ngIf="catalogList.length else loading">
+    <app-infinite-scroll (scrolled)="loadNextData()">
+      <app-catalog class="app-catalog-component"
+        *ngFor="let catalog of catalogList"
+        [catalogOfDrinks]="catalog"></app-catalog>
+    </app-infinite-scroll>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="loading-text">
+    Loading...
+  </div>
+</ng-template>

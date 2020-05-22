@@ -1,0 +1,6 @@
+<div class="catalog-component">
+    <h3 class="catalog-component__title">{{catalogOfDrinks.title}}</h3>
+    <div class="catalog-component__drink-items-wrapper">
+      <app-drink-item class="catalog-component__drink-item" [itemContent]="item" *ngFor="let item of catalogOfDrinks.data"></app-drink-item>
+    </div>
+</div>
