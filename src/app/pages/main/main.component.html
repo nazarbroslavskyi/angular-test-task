@@ -3,18 +3,14 @@
   <app-filter class="app-filter-component"
     (applyFilter)="fetchCatalogtData($event)"></app-filter>
   <div class="catalog-list">
-    <div *ngIf="!isCatalogLoading else loading">
-    <app-infinite-scroll (scrolled)="loadNextData()">
+    <app-infinite-scroll class="infinite-scroll" *ngIf="!error else loading" [end]="endOfList" (scrolled)="loadNextData()">
       <app-catalog class="app-catalog-component"
         *ngFor="let catalog of catalogList"
         [catalogOfDrinks]="catalog"></app-catalog>
     </app-infinite-scroll>
-    </div>
   </div>
 </div>
 
 <ng-template #loading>
-  <div class="">
-    Loading...
-  </div>
+  <div class="error-message">Something went wrong or you do not apply any filter</div>
 </ng-template>

@@ -11,7 +11,5 @@ export class CatalogComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
-    console.log(this.catalogOfDrinks);
-  }
+  ngOnInit() {}
 }

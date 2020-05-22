@@ -12,53 +12,58 @@ import { EMPTY, throwError } from 'rxjs';
 export class MainComponent implements OnInit {
   public catalogList = [];
   public initialCatalogIndex = 0;
-  isCatalogLoading = false;
-
-  filterList: any;
+  public filterList = [];
+  public endOfList: boolean;
+  public error = false;
 
   constructor(private catalog: CatalogService) { }
 
   ngOnInit() {}
 
-  fetchCatalogList(catalogList, catalogIndex) {
-    this.isCatalogLoading = true;
-    console.log(catalogList);
+  public fetchCatalogList(catalogList, catalogIndex) {
+    this.error = false;
+    this.endOfList = false;
     const params = new HttpParams().set('c', catalogList[catalogIndex]);
     this.catalog.fetchCatalog('filter.php', params).pipe(
       map(data => {
        if (data) {
          return data;
        } else {
-        return throwError('This is an error!');
+          throw 'This is an error!';
        }
       }),
       catchError(err => {
         console.log(err);
-        this.isCatalogLoading = false;
+        this.error = true;
         return EMPTY;
       })
     )
     .subscribe((data: any) => {
-      this.isCatalogLoading = false;
-      this.initialCatalogIndex++;
-      this.catalogList.push({
-        title: params.get('c'),
-        data: data.drinks
-      });
+      if (data.drinks.length) {
+        this.catalogList.push({
+          title: params.get('c'),
+          data: data.drinks
+        });
+      }
     });
   }
 
-
   fetchCatalogtData(catalogList) {
+    this.endOfList = false;
     this.filterList = catalogList;
     this.catalogList = [];
     this.initialCatalogIndex = 0;
     this.fetchCatalogList(catalogList, this.initialCatalogIndex); // initial load of data
   }
 
-  loadNextData() {
-    if (!(this.filterList.length === this.initialCatalogIndex)) {
-      this.fetchCatalogList(this.filterList, this.initialCatalogIndex);
-    }
+  public  loadNextData() {
+    setTimeout(() => {
+      this.initialCatalogIndex++;
+      if ((this.filterList.length !== this.initialCatalogIndex)) {
+        this.fetchCatalogList(this.filterList, this.initialCatalogIndex);
+      } else {
+        this.endOfList = true;
+      }
+    }, 0);
   }
 }

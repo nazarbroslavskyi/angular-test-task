@@ -2,12 +2,6 @@
 .filter-and-catalog-container {
   display: flex;
   justify-content: space-between;
-
-  // background-color: green;
-  padding: 50px;
-  padding-left: 0;
-  padding-top: 0;
-  padding-bottom: 0;
 }
 
 .app-catalog-component {
@@ -20,7 +14,6 @@
   border-right: 1px solid #D0D0D0;
   min-height: calc(100vh - 70px);
 }
-
 
 .catalog-list {
   width: 100%;
@@ -36,4 +29,16 @@
 
 .loading-text {
   margin-top: 60px;
+}
+
+.error-message {
+  margin-top: 30px;
+  color: red;
+  font-size: 23px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.infinite-scroll {
+  width: 100%;
 }

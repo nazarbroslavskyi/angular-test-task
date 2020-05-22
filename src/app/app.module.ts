@@ -5,7 +5,6 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { DrinkItemComponent } from './components/drink-item/drink-item.component';
 import { MainComponent } from './pages/main/main.component';
-import { CheckboxItemComponent } from './components/checkbox-item/checkbox-item.component';
 import { CatalogComponent } from './components/catalog/catalog.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,7 +17,6 @@ import { InfiniteScrollComponent } from './components/infinite-scroll/infinite-s
     FilterComponent,
     DrinkItemComponent,
     MainComponent,
-    CheckboxItemComponent,
     CatalogComponent,
     InfiniteScrollComponent
   ],

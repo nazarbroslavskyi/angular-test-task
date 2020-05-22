@@ -1,7 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import {
   AfterViewInit,
-  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
@@ -24,6 +23,8 @@ export class InfiniteScrollComponent implements AfterViewInit, OnDestroy {
    * Infinite scroll options
    */
   @Input() options: Partial<InfiniteScrollOptions> = {};
+
+  @Input() end = false;
 
   /**
    * Event emitter scrolled
@@ -76,8 +77,6 @@ export class InfiniteScrollComponent implements AfterViewInit, OnDestroy {
   }
 }
 
-
-
 /**
  * Infinite scroll options
  */
@@ -86,13 +85,3 @@ export interface InfiniteScrollOptions {
 
   root: any;
 }
-
-// @Component({
-//   selector: 'ms-infinite-scroll',
-//   templateUrl: './infinite-scroll.component.html',
-//   styleUrls: ['./infinite-scroll.component.scss'],
-//   changeDetection: ChangeDetectionStrategy.OnPush
-// })
-// export class InfiniteScrollComponent implements AfterViewInit, OnDestroy {
-
-// }

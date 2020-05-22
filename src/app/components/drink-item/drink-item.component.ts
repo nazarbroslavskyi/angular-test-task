@@ -10,8 +10,6 @@ export class DrinkItemComponent implements OnInit {
   @Input() itemContent: DrinkItem;
   constructor() { }
 
-  ngOnInit() {
-    console.log(this.itemContent.strDrink);
-  }
+  ngOnInit() {}
 
 }

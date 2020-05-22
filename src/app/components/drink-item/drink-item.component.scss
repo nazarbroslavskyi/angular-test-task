@@ -1,12 +1,11 @@
 .drink-item-component {
-  // background: blue;
-  // margin: 4px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
   width: 150px;
   margin-top: 20px;
+
   &__img-wrapper {
     background-color: lightgrey;
     width: 150px;
