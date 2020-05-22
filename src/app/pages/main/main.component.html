@@ -3,7 +3,7 @@
   <app-filter class="app-filter-component"
     (applyFilter)="fetchCatalogtData($event)"></app-filter>
   <div class="catalog-list">
-    <div *ngIf="catalogList.length else loading">
+    <div *ngIf="!isCatalogLoading">
     <app-infinite-scroll (scrolled)="loadNextData()">
       <app-catalog class="app-catalog-component"
         *ngFor="let catalog of catalogList"

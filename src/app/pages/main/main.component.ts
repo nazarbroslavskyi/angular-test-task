@@ -12,6 +12,7 @@ import { EMPTY, throwError } from 'rxjs';
 export class MainComponent implements OnInit {
   public catalogList = [];
   public initialCatalogIndex = 0;
+  isCatalogLoading = false;
 
   filterList: any;
 
@@ -20,6 +21,7 @@ export class MainComponent implements OnInit {
   ngOnInit() {}
 
   fetchCatalogList(catalogList, catalogIndex) {
+    this.isCatalogLoading = true;
     console.log(catalogList);
     const params = new HttpParams().set('c', catalogList[catalogIndex]);
     this.catalog.fetchCatalog('filter.php', params).pipe(
@@ -32,10 +34,12 @@ export class MainComponent implements OnInit {
       }),
       catchError(err => {
         console.log(err);
+        this.isCatalogLoading = false;
         return EMPTY;
       })
     )
     .subscribe((data: any) => {
+      this.isCatalogLoading = false;
       this.initialCatalogIndex++;
       this.catalogList.push({
         title: params.get('c'),
