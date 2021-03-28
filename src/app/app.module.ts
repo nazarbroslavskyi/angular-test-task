@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InfiniteScrollComponent } from './components/infinite-scroll/infinite-scroll.component';
 import { ComboboxComponent } from './combobox/combobox.component';
+import { AmwRadioOptionComponent } from './amw-radio-option/amw-radio-option.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ComboboxComponent } from './combobox/combobox.component';
     MainComponent,
     CatalogComponent,
     InfiniteScrollComponent,
-    ComboboxComponent
+    ComboboxComponent,
+    AmwRadioOptionComponent
   ],
   imports: [
     BrowserModule,

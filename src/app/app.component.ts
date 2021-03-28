@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-test';
-
+  logs = [];
 
   options=[
     {"code":"1","label":"Yellow"},
@@ -18,4 +18,14 @@ export class AppComponent {
     {"code":"6","label":"Purple"},
     {"code":"7","label":"Pink"},
   ]
+
+  onComboboxClick($event) {
+
+    this.logs.push('FOCUSIN log --------')
+  }
+
+  onComoboxFocusOut($event) {
+    this.logs.push('FOCUSOUT')
+  }
+
 }

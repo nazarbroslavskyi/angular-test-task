@@ -1,14 +1,36 @@
 <!-- <app-main></app-main> -->
 <p>hello world</p>
 
+<div role="application">
+  <div class="card">
+    <div class="card-header">Accessibility Example(s)</div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="colors col-6" id="colors_lbl">Colors:</label>
+            <div class="col-6"><app-combobox id="colors" arialabel="Colors" arialabelledby="colors_lbl" [options]="options" code="code" label="label"></app-combobox></div>
+          </div>
+     </div>
 
-<div class="card">
-  <div class="card-header">Accessibility Example(s)</div>
-  <div class="card-body">
-      <div class="form-group">
-          <label for="colors col-6" id="colors_lbl">Colors:</label>
-          <div class="col-6"><app-combobox id="colors" arialabel="Colors" arialabelledby="colors_lbl" [options]="options" code="code" label="label"></app-combobox></div>
-        </div>
-   </div>
-
+  </div>
 </div>
+
+
+<!-- <div>
+  <input type="text"
+
+
+  (focusin)="onComboboxClick($event)"
+             (focusout)="onComoboxFocusOut($event)">
+
+             <p *ngFor="let n in logs">{{ logs}}</p>
+</div> -->
+
+
+<app-amw-radio-option></app-amw-radio-option>
+
+<button>fefr
+</button>
+
+<img class="img-ios" src="https://pixabay.com/get/gb5f9cdeefba61d88725bcf8328d18faa07eb13dc6e9986dfa09a55929cc5c26d064ec2b0cd6b609301a1bee93beb9e2e_1280.jpg" alt="image text">
+
+<button>cefer</button>
