@@ -9,6 +9,7 @@ import { CatalogComponent } from './components/catalog/catalog.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InfiniteScrollComponent } from './components/infinite-scroll/infinite-scroll.component';
+import { ComboboxComponent } from './combobox/combobox.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { InfiniteScrollComponent } from './components/infinite-scroll/infinite-s
     DrinkItemComponent,
     MainComponent,
     CatalogComponent,
-    InfiniteScrollComponent
+    InfiniteScrollComponent,
+    ComboboxComponent
   ],
   imports: [
     BrowserModule,
