@@ -1,0 +1,4 @@
+<h2 class="sort-form__header">{{header}}</h2>
+<div [formGroup]="form">
+  <app-amw-radio-option *ngFor="let filter of filters;" [value]="filter.value"  controlName="filters" [label]="filter.label"></app-amw-radio-option>
+</div>

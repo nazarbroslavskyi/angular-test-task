@@ -1,0 +1,14 @@
+<label class="amw-radio__wrapper">
+  <input
+    class="amw-radio__field"
+    [formControlName]="controlName"
+    [value]="value"
+    type="radio"
+    [checked]="checked"
+    (blur)="onInputBlur()"
+  />
+  <span class="amw-radio__overlay" aria-hidden="true"></span>
+  <span class="amw-radio__text">
+    <span class="amw-text">{{label}}</span>
+  </span>
+</label>

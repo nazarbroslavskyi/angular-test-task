@@ -1,14 +1,46 @@
 <!-- <app-main></app-main> -->
-<p>hello world</p>
+<!-- <p>hello world</p>s -->
+<button>button hello</button>
 
+<div role="application">
+  <div class="card">
+    <div class="card-header">Accessibility Example(s)</div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="colors col-6" id="colors_lbl">Colors:</label>
+            <div class="col-6"><app-combobox id="colors" arialabel="Colors" arialabelledby="colors_lbl" [options]="options" code="code" label="label"></app-combobox></div>
+          </div>
+     </div>
 
-<div class="card">
-  <div class="card-header">Accessibility Example(s)</div>
-  <div class="card-body">
-      <div class="form-group">
-          <label for="colors col-6" id="colors_lbl">Colors:</label>
-          <div class="col-6"><app-combobox id="colors" arialabel="Colors" arialabelledby="colors_lbl" [options]="options" code="code" label="label"></app-combobox></div>
-        </div>
-   </div>
-
+  </div>
 </div>
+
+
+<!-- <div>
+  <input type="text"
+
+
+  (focusin)="onComboboxClick($event)"
+             (focusout)="onComoboxFocusOut($event)">
+
+             <p *ngFor="let n in logs">{{ logs}}</p>
+</div> -->
+
+
+<!-- <app-sort-control [filters]="filters" header="Sort By"></app-sort-control> -->
+
+<!-- <form [formGroup]="form">
+  <app-amw-radio-option [label]="label"></app-amw-radio-option>
+</form> -->
+
+<!-- <pre>{{form.value | json}}</pre> -->
+
+
+<div [formGroup]="sort">
+  <app-sort-control [filters]="filters"  formControlName="sortOption" header="Sort By"></app-sort-control>
+</div>
+
+
+
+
+<button>HELLO</button>

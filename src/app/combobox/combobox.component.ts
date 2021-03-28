@@ -7,7 +7,7 @@ import { Component, OnInit,HostBinding,Input,Output,QueryList,ViewChildren, Elem
   styleUrls: ['./combobox.component.scss']
 })
 export class ComboboxComponent implements OnInit {
-
+logs = [];
   constructor() { }
 
   ngOnInit() {
@@ -196,22 +196,36 @@ export class ComboboxComponent implements OnInit {
    * To toggle between open/close dropdown ul list
    */
   onComboboxClick(event:any){
-      this.toggleList();
+    console.log('focus');
+    var e = new KeyboardEvent('keydown', { key: '32', code: 'Space'} );
+    var n = new KeyboardEvent('keydown', { key: '32', code: 'Space'} );
+    document.dispatchEvent(e);
+    setTimeout(() => document.dispatchEvent(n));
+    console.log(event.target.focus());
+
+    this.logs.push('log №' + this.logs.length);
+    this.toggleList();
+    let b: KeyboardEventInit;
   }
  /**
   * To enable keyboard navigation
   * @param event
   */
   onKeydown(event:any){
+    this.logs.push('key down');
     let keyCode=event.which;
     let shiftKey=event.shiftKey;
       switch(keyCode){
 
           case 40:
           this.setNextActiveDescendant();
+          event.stopPropagation();
+          event.stopImmediatePropagation();
           break;
           case 38:
           this.setPreviousActiveDescendant();
+          event.stopPropagation();
+          event.stopImmediatePropagation();
           break;
           case 13:
           this.selectOption();

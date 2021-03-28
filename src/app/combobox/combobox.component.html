@@ -1,4 +1,5 @@
-<div id="{{id}}_acxbox"
+<div role="application">
+  <div id="{{id}}_acxbox"
      class="acxbox {{type}}"
      role="combobox"
      [attr.aria-owns]="_dropdownId"
@@ -17,6 +18,7 @@
              id="acxbox_input_{{id}}"
              (focusin)="onComboboxClick($event)"
              (focusout)="onComoboxFocusOut($event)"
+             (blur)="onComoboxFocusOut($event)"
              (keydown)="onKeydown($event)"
              (keyup)="onKeyup($event)"/>
         <div class="input-group-append">
@@ -49,5 +51,11 @@
             <li *ngFor="let option of _filteredOptions" role="option" id="{{option.elementId}}" [attr.data-code]="option.code" [attr.aria-selected]=
             "option.selected" (click)="optionClicked(option,$event)" [attr.data-activedescendant]="option.activedescendant">{{option.label}}</li>
     </ul>
+
+</div>
+
+<!-- <div class="logs">
+  <p *ngFor="let b of logs">{{ b }}</p>
+</div> -->
 
 </div>
